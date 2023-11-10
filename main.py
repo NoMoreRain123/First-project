@@ -128,7 +128,7 @@ def number_guessing():
     while guess != answer:
         attempt = attempt + 1
         guess = input(int())
-        if answer == (guess):
+        if answer == guess:
             print('Correct')
             break
         elif attempt == 2:
@@ -141,14 +141,29 @@ def number_guessing():
                 print("Wrong\n(hint) The number is even")
         elif attempt == 1:
             print('Wrong\n(hint)The number is odd')
+def todolist():
+    todo_list = []
+    print("This is a todo list.")
+    print("What should be first")
+    todo_list_add = input("Add New Todo\n")
+    todo_list.append(todo_list_add)
+    print("Would you like to add another thing to do or\nsee all your todos ")
+    while True:
+        next_choice = input("Type Home to see all todos.\nType New to add something else")
+        if next_choice == "Home":
+            print(todo_list)
+            break
+        else:
+            todo_list_add = input("Add New Todo\n")
+            todo_list.append(todo_list_add)
 
 
 def start():
     print("What would you like to do")
     print("You Have An Assortment of options Type the number and press enter of the one you wish to play.")
     print("Press enter to quit.")
-    print('0. Number Guessing Game 1. Rock Paper Scissors', "\n2. Tip Genorator", "3. Calculator")
-    choice_list = [number_guessing, rock_paper_scisssors, tip_genorator]
+    print('0. Number Guessing Game 1. Rock Paper Scissors', "\n2. Tip Genorator", "3. todo list")
+    choice_list = [number_guessing, rock_paper_scisssors, tip_genorator, todolist]
     choice_index = input()
     choice_index = int(choice_index)
     choice_list[choice_index]()

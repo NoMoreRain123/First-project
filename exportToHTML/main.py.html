@@ -1,0 +1,100 @@
+<html>
+<head>
+<title>main.py</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cf8e6d;}
+.s1 { color: #bcbec4;}
+.s2 { color: #bcbec4;}
+.s3 { color: #2aacb8;}
+.s4 { color: #6aab73;}
+.s5 { color: #7a7e85;}
+</style>
+</head>
+<body bgcolor="#1e1f22">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+main.py</font>
+</center></td></tr></table>
+<pre><span class="s0">import </span><span class="s1">random</span>
+
+
+<span class="s0">def </span><span class="s1">number_guessing</span><span class="s2">():</span>
+    <span class="s1">arange </span><span class="s2">= </span><span class="s1">range</span><span class="s2">(</span><span class="s3">1</span><span class="s2">, </span><span class="s3">3</span><span class="s2">)</span>
+    <span class="s1">attempt </span><span class="s2">= </span><span class="s3">0</span>
+    <span class="s1">answer </span><span class="s2">= </span><span class="s1">int</span><span class="s2">(</span><span class="s1">random</span><span class="s2">.</span><span class="s1">choice</span><span class="s2">(</span><span class="s1">arange</span><span class="s2">))</span>
+    <span class="s1">print</span><span class="s2">(</span><span class="s4">&quot;This is the NGG(number guessing game).&quot;</span><span class="s2">)</span>
+    <span class="s1">print</span><span class="s2">(</span><span class="s4">&quot;Its quite simple you know. All you must do is guess the right number for a given range.&quot;</span><span class="s2">)</span>
+    <span class="s1">print</span><span class="s2">(</span><span class="s4">&quot;There will be multiple rounds for each round you will type the letter you think it is.&quot;</span><span class="s2">)</span>
+    <span class="s1">print</span><span class="s2">(</span><span class="s4">&quot;You will get a few hints each time you make a mistake. But not ALWAYS.&quot;</span><span class="s2">)</span>
+    <span class="s1">print</span><span class="s2">(</span><span class="s4">&quot;Lets start easy&quot;</span><span class="s2">)</span>
+<span class="s5">#Change game range and hints and add more rounds.</span>
+    <span class="s1">guess </span><span class="s2">= </span><span class="s4">&quot; &quot;</span>
+    <span class="s1">print</span><span class="s2">(</span><span class="s4">&quot;Alright Guess a number 1-3&quot;</span><span class="s2">)</span>
+    <span class="s0">while </span><span class="s1">guess </span><span class="s2">!= </span><span class="s1">answer</span><span class="s2">:</span>
+        <span class="s1">attempt </span><span class="s2">= </span><span class="s1">attempt </span><span class="s2">+ </span><span class="s3">1</span>
+        <span class="s1">guess </span><span class="s2">= </span><span class="s1">input</span><span class="s2">(</span><span class="s1">int</span><span class="s2">())</span>
+        <span class="s0">if </span><span class="s1">answer </span><span class="s2">== </span><span class="s1">int</span><span class="s2">(</span><span class="s1">guess</span><span class="s2">):</span>
+            <span class="s1">print</span><span class="s2">(</span><span class="s4">'Correct'</span><span class="s2">)</span>
+            <span class="s0">break</span>
+        <span class="s0">elif </span><span class="s1">attempt </span><span class="s2">== </span><span class="s3">2</span><span class="s2">:</span>
+            <span class="s0">if </span><span class="s1">answer </span><span class="s2">&lt;= </span><span class="s3">5</span><span class="s2">:</span>
+                <span class="s1">print</span><span class="s2">(</span><span class="s4">&quot;(Hint) The Answer is 5 or less&quot;</span><span class="s2">)</span>
+            <span class="s0">else</span><span class="s2">:</span>
+                <span class="s1">print</span><span class="s2">(</span><span class="s4">&quot;(Hint) The Answer is More Then 5&quot;</span><span class="s2">)</span>
+        <span class="s0">elif </span><span class="s1">attempt </span><span class="s2">== </span><span class="s3">1</span><span class="s2">:</span>
+            <span class="s0">if </span><span class="s1">answer </span><span class="s2">% </span><span class="s3">2 </span><span class="s2">== </span><span class="s3">0</span><span class="s2">:</span>
+                <span class="s1">print</span><span class="s2">(</span><span class="s4">&quot;Wrong</span><span class="s0">\n</span><span class="s4">(hint) The number is even&quot;</span><span class="s2">)</span>
+        <span class="s0">elif </span><span class="s1">attempt </span><span class="s2">== </span><span class="s3">1</span><span class="s2">:</span>
+            <span class="s1">print</span><span class="s2">(</span><span class="s4">'Wrong</span><span class="s0">\n</span><span class="s4">(hint)The number is odd'</span><span class="s2">)</span>
+
+<span class="s1">you_throw </span><span class="s2">= </span><span class="s4">&quot;&quot;</span>
+<span class="s1">choices </span><span class="s2">= </span><span class="s4">&quot;Rock&quot;</span><span class="s2">, </span><span class="s4">&quot;Paper&quot;</span><span class="s2">, </span><span class="s4">&quot;Scissors&quot;</span>
+<span class="s1">rock</span><span class="s2">, </span><span class="s1">paper</span><span class="s2">, </span><span class="s1">scissors </span><span class="s2">= </span><span class="s1">choices</span>
+<span class="s1">pc_throw </span><span class="s2">= </span><span class="s1">random</span><span class="s2">.</span><span class="s1">choice</span><span class="s2">(</span><span class="s1">choices</span><span class="s2">)</span>
+<span class="s1">winner </span><span class="s2">= </span><span class="s3">0</span>
+<span class="s1">pc_win </span><span class="s2">= </span><span class="s1">winner </span><span class="s2">== </span><span class="s3">2</span>
+<span class="s1">player_win </span><span class="s2">= </span><span class="s1">winner </span><span class="s2">== </span><span class="s3">1</span>
+<span class="s1">tie </span><span class="s2">= </span><span class="s1">winner </span><span class="s2">== </span><span class="s3">3</span>
+<span class="s1">win_loss_count </span><span class="s2">= </span><span class="s3">0</span>
+<span class="s1">print</span><span class="s2">(</span><span class="s4">&quot;Type anything and press enter if you wish to play a game.</span><span class="s0">\n</span><span class="s4">If not feel free to press enter.&quot;</span><span class="s2">)</span>
+<span class="s0">if </span><span class="s1">input</span><span class="s2">():</span>
+    <span class="s1">print</span><span class="s2">(</span><span class="s4">&quot;Alright lets play then.&quot;</span><span class="s2">)</span>
+    <span class="s1">print</span><span class="s2">(</span><span class="s4">&quot;You Have An Assortment of options Type the number and press enter of the one you wish to play.&quot;</span><span class="s2">)</span>
+    <span class="s1">print</span><span class="s2">(</span><span class="s4">&quot;for press enter to not play at all.&quot;</span><span class="s2">)</span>
+    <span class="s1">print</span><span class="s2">(</span><span class="s4">'1.Number Guessing Game. 2. Rock Paper Scissors'</span><span class="s2">)</span>
+    <span class="s0">if </span><span class="s1">input</span><span class="s2">() == </span><span class="s4">&quot;1&quot;</span><span class="s2">:</span>
+        <span class="s1">number_guessing</span><span class="s2">()</span>
+    <span class="s0">while </span><span class="s1">input</span><span class="s2">() == </span><span class="s4">&quot;2&quot;</span><span class="s2">:</span>
+        <span class="s1">print</span><span class="s2">(</span><span class="s4">&quot;so you think your good a Rock Paper Scissors??&quot;</span><span class="s2">)</span>
+        <span class="s1">print</span><span class="s2">(</span><span class="s4">&quot;Lets test your skills then&quot;</span><span class="s2">)</span>
+        <span class="s1">you_throw </span><span class="s2">= </span><span class="s1">input</span><span class="s2">()</span>
+        <span class="s0">if </span><span class="s1">you_throw </span><span class="s2">== </span><span class="s1">rock </span><span class="s0">and </span><span class="s1">pc_throw </span><span class="s2">== </span><span class="s1">scissors</span><span class="s2">:</span>
+            <span class="s1">winner </span><span class="s2">= </span><span class="s3">1</span>
+        <span class="s0">elif </span><span class="s1">you_throw </span><span class="s2">== </span><span class="s1">pc_throw</span><span class="s2">:</span>
+            <span class="s1">winner </span><span class="s2">= </span><span class="s3">3</span>
+        <span class="s0">elif </span><span class="s1">you_throw </span><span class="s2">== </span><span class="s1">rock </span><span class="s0">and </span><span class="s1">pc_throw </span><span class="s2">== </span><span class="s1">paper</span><span class="s2">:</span>
+            <span class="s1">winner </span><span class="s2">= </span><span class="s3">2</span>
+        <span class="s0">elif </span><span class="s1">you_throw </span><span class="s2">== </span><span class="s1">paper </span><span class="s0">and </span><span class="s1">pc_throw </span><span class="s2">== </span><span class="s1">rock</span><span class="s2">:</span>
+            <span class="s1">winner </span><span class="s2">= </span><span class="s3">1</span>
+        <span class="s0">elif </span><span class="s1">you_throw </span><span class="s2">== </span><span class="s1">paper </span><span class="s0">and </span><span class="s1">pc_throw </span><span class="s2">== </span><span class="s1">scissors</span><span class="s2">:</span>
+            <span class="s1">winner </span><span class="s2">= </span><span class="s3">3</span>
+        <span class="s0">elif </span><span class="s1">you_throw </span><span class="s2">== </span><span class="s1">scissors </span><span class="s0">and </span><span class="s1">pc_throw </span><span class="s2">== </span><span class="s1">rock</span><span class="s2">:</span>
+            <span class="s1">winner </span><span class="s2">= </span><span class="s3">3</span>
+        <span class="s0">elif </span><span class="s1">you_throw </span><span class="s2">== </span><span class="s1">scissors </span><span class="s0">and </span><span class="s1">pc_throw </span><span class="s2">== </span><span class="s1">paper</span><span class="s2">:</span>
+            <span class="s1">winner </span><span class="s2">= </span><span class="s3">2</span>
+        <span class="s0">if </span><span class="s1">winner </span><span class="s2">== </span><span class="s3">1</span><span class="s2">:</span>
+            <span class="s1">print</span><span class="s2">(</span><span class="s4">&quot;Well not bad you can try again sense we tied&quot;</span><span class="s2">)</span>
+        <span class="s0">elif </span><span class="s1">winner </span><span class="s2">== </span><span class="s3">2</span><span class="s2">:</span>
+            <span class="s1">print</span><span class="s2">(</span><span class="s4">&quot;Well you did it you can play again or you can Take your win and leave&quot;</span><span class="s2">)</span>
+        <span class="s0">elif </span><span class="s1">winner </span><span class="s2">== </span><span class="s3">3</span><span class="s2">:</span>
+            <span class="s1">print</span><span class="s2">(</span><span class="s4">&quot;Just as I expected YOU LOST but you can try again or cut you losses.&quot;</span><span class="s2">)</span>
+
+<span class="s0">else</span><span class="s2">:</span>
+    <span class="s1">print</span><span class="s2">(</span><span class="s4">&quot;But Why wouldn't you want to play a game hmm...&quot;</span><span class="s2">)</span>
+    <span class="s1">input</span><span class="s2">()</span>
+    <span class="s1">quit</span><span class="s2">()</span>
+</pre>
+</body>
+</html>
