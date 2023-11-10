@@ -12,7 +12,6 @@ check = specal_letter + capLetters
 
 
 def password_gen():
-    passwords = []
     your_password = random.sample(check, 25)
     x = "".join(your_password)
     print("your password is")
@@ -34,19 +33,16 @@ def password_check():
     password_lenth_check_list = []
     number_check_list = []
     specal_letters_check_list = []
-    whole_check = cap_letters_check_list + password_lenth_check_list + number_check_list + specal_letters_check_list
-    check_list = [len(cap_letters_check_list), len(password_lenth_check_list), len(number_check_list),
-                  len(specal_letters_check_list)]
-    password_input = input("Enter Password")
+    password_input = input("Enter Password\n")
     password = list(password_input.strip(""))
     for x in password:
         for y in capLetters:
             if x == y:
-                cap_letters_check_list.append("")
+                cap_letters_check_list.append("f")
                 break
         for a in numbers_list:
             if x == a:
-                number_check_list.append("")
+                number_check_list.append("d")
                 break
         for b in specal_letter:
             if x == b:
@@ -54,24 +50,26 @@ def password_check():
                 break
     if len(password) > 8:
         password_lenth_check_list.append("9i9i9")
-        print("hi")
-    if len(whole_check) > 4:
-        print("Your Password is Strong")
+    check_list = [len(cap_letters_check_list), len(password_lenth_check_list), len(number_check_list),
+                  len(specal_letters_check_list)]
+    if check_list[1] < 1:
+        print("Try increasing the lenth of your password")
+        password_check()
+    elif check_list[2] < 1:
+        print("Try adding atleast one number")
+        password_check()
+    elif check_list[0] < 1:
+        print("Try adding at least one capital letter")
+        password_check()
+    elif check_list[3] < 1:
+        print("Try Adding a specal charecter or symbol")
+        password_check()
     else:
-
-        if int(check_list[1]) < 1:
-            print("Try increasing the lenth of your password")
-            check_list[1] = check_list[1] + 1
-            print(check_list[1])
-        elif check_list[2] < 1:
-            print("Try adding atleast one number")
-
-        elif check_list[0] < 1:
-            print("Try adding at least one capital letter")
-
-        elif check_list[3] < 1:
-            print("Try Adding a specal charecter or symbol")
+        print("Password is strong enough")
 
 
-
-password_check()
+print("password strenth checker is .1\npassword genorator is .2\n")
+choice_list = [password_check, password_gen]
+choice_index = input()
+choice_index = int(choice_index)-1
+choice_list[choice_index]()
