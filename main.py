@@ -1,5 +1,4 @@
 import random
-
 global guest_bill
 global split_bill
 
@@ -9,10 +8,6 @@ def rock_paper_scisssors():
     rock, paper, scissors = choices
     pc_throw = random.choice(choices)
     winner = 0
-    pc_win = winner == 2
-    player_win = winner == 1
-    tie = winner == 3
-    win_loss_count = 0
 
     print("so you think your good a Rock Paper Scissors??")
     print("Lets test your skills then")
@@ -157,13 +152,83 @@ def todolist():
             todo_list_add = input("Add New Todo\n")
             todo_list.append(todo_list_add)
 
+# calculator
+# adventure game
+# quizz game
+
+
+capLetters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T",
+              "U", "V", "W", "X", "Y", "Z"]
+specal_letter = ["~", "!", "@", "#", "$", '%', '^', '&', '*', '(', '(', ')', '_', '-', '+', '=', '[', ']', '{', '}',
+                 ';', ':', "'", "<", ">", '>', ".", '/', "?", '"']
+numbers_list = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0']
+check = specal_letter + capLetters
+
+def password_help():
+    def password_gen():
+        your_password = random.sample(check, 25)
+        x = "".join(your_password)
+        print("your password is")
+        print(x)
+        choice = input("type New if you would like another or type save to save it to your paswords")
+        print("you can also see all the passwords you've saved")
+        if choice == "New":
+            password_gen()
+        elif choice == "new":
+            password_gen()
+        # add saved
+    def password_check():
+        cap_letters_check_list = []
+        password_lenth_check_list = []
+        number_check_list = []
+        specal_letters_check_list = []
+        password_input = input("Enter Password\n")
+        password = list(password_input.strip(""))
+        for x in password:
+            for y in capLetters:
+                if x == y:
+                    cap_letters_check_list.append("f")
+                    break
+            for a in numbers_list:
+                if x == a:
+                    number_check_list.append("d")
+                    break
+            for b in specal_letter:
+                if x == b:
+                    specal_letters_check_list.append("iju")
+                    break
+        if len(password) > 8:
+            password_lenth_check_list.append("9i9i9")
+        check_list = [len(cap_letters_check_list), len(password_lenth_check_list), len(number_check_list),
+                      len(specal_letters_check_list)]
+        if check_list[1] < 1:
+            print("Try increasing the lenth of your password")
+            password_check()
+        elif check_list[2] < 1:
+            print("Try adding atleast one number")
+            password_check()
+        elif check_list[0] < 1:
+            print("Try adding at least one capital letter")
+            password_check()
+        elif check_list[3] < 1:
+            print("Try Adding a specal charecter or symbol")
+            password_check()
+        else:
+            print("Password is strong enough")
+
+    print("password strenth checker is .1\npassword genorator is .2\n")
+    choice_list = [password_check, password_gen]
+    choice_index = input()
+    choice_index = int(choice_index)-1
+    choice_list[choice_index]()
+
 
 def start():
     print("What would you like to do")
     print("You Have An Assortment of options Type the number and press enter of the one you wish to play.")
     print("Press enter to quit.")
-    print('0. Number Guessing Game 1. Rock Paper Scissors', "\n2. Tip Genorator", "3. todo list")
-    choice_list = [number_guessing, rock_paper_scisssors, tip_genorator, todolist]
+    print('0. Number Guessing Game 1. Rock Paper Scissors', "\n2. Tip Genorator", "3. todo list", "4. Password Help")
+    choice_list = [number_guessing, rock_paper_scisssors, tip_genorator, todolist, password_help]
     choice_index = input()
     choice_index = int(choice_index)
     choice_list[choice_index]()
